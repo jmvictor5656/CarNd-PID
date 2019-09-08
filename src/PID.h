@@ -30,6 +30,7 @@ class PID {
    * @output The total PID error
    */
   double TotalError();
+  void CoeffFinder();
 
  private:
   /**
@@ -45,6 +46,11 @@ class PID {
   double Kp;
   double Ki;
   double Kd;
+  double err;
+  double p[3] = {0.5, 0, 0};
+  double dp[3] = {1.0, 1.0, 1.0};
+  int steps=0;
+  double best_err = 0;
 };
 
 #endif  // PID_H
